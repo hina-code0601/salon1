@@ -1,0 +1,170 @@
+/* ------------------------------
+   全体の初期設定（リセット）
+------------------------------ */
+* {
+  margin: 0;                  /* すべての要素の外側余白をなくす */
+  padding: 0;                 /* すべての要素の内側余白をなくす */
+  box-sizing: border-box;     /* paddingやborderを含めてサイズを計算する */
+}
+
+/* ------------------------------
+   基本設定（body全体）
+------------------------------ */
+body {
+  font-family: 'Helvetica', sans-serif;  /* フォントの種類（見やすくスタイリッシュ） */
+  line-height: 1.6;                       /* 行間を1.6倍にすることで読みやすく */
+  background-color: #fff;                /* 背景色は白 */
+  color: #333;                           /* 文字色は濃いグレー（真っ黒より優しい） */
+}
+
+/* ------------------------------
+   ヘッダー（ロゴ＋ナビゲーション）
+------------------------------ */
+header {
+  display: flex;                         /* ロゴとナビを横並びにする */
+  justify-content: space-between;       /* 左右に端寄せ */
+  align-items: center;                  /* 高さを中央に揃える */
+  padding: 1rem 2rem;                   /* 内側の余白（上下1、左右2） */
+  background-color: #f5f5f5;            /* 薄いグレーの背景 */
+}
+
+header .logo {
+  font-size: 1.5rem;                    /* ロゴの文字サイズ大きめ */
+  font-weight: bold;                   /* ロゴを太字に */
+}
+
+nav ul {
+  display: flex;                        /* 横並びに */
+  list-style: none;                    /* リスト記号（・）を消す */
+  gap: 1rem;                            /* 各リンクの間隔を1rem空ける */
+}
+
+nav a {
+  text-decoration: none;               /* 下線を消す */
+  color: #333;                         /* 文字色を濃いグレーに統一 */
+  font-weight: bold;                   /* 太字で強調 */
+}
+
+/* ------------------------------
+   メイン画像スライダー
+------------------------------ */
+.slider {
+  width: 100%;                         /* 横幅を100%に広げる */
+  overflow: hidden;                    /* はみ出す画像を非表示にする */
+  position: relative;                  /* 後でJSで位置調整するために指定 */
+}
+
+.slider img {
+  width: 100%;                         /* 幅いっぱいに画像表示 */
+  display: none;                       /* 最初は非表示 */
+}
+
+/* 最初の画像だけ表示 */
+.slider img:first-child {
+  display: block;
+}
+
+/* ------------------------------
+   Concept セクション
+------------------------------ */
+#concept {
+  display: flex;                       /* 横並び（画像＋テキスト） */
+  align-items: center;                /* 縦方向中央揃え */
+  padding: 2rem;                      /* セクション内の余白 */
+  gap: 2rem;                          /* 画像と文章の間隔 */
+}
+
+#concept img {
+  width: 50%;                         /* 横幅の半分を画像に */
+  height: auto;                       /* 高さは自動調整で比率保持 */
+  border-radius: 8px;                 /* 角を少し丸くしてやさしい印象に */
+}
+
+#concept .text {
+  width: 50%;                         /* 残り半分をテキストに割り当て */
+}
+
+/* ------------------------------
+   Menu セクション
+------------------------------ */
+#menu {
+  background-color: #fafafa;          /* 少しだけグレーの背景で区切り感 */
+  padding: 2rem;
+  text-align: center;                 /* 中央寄せに */
+}
+
+.menu-item {
+  display: inline-block;             /* 横並びにしつつ高さに余裕をもたせる */
+  background-color: #fff;            /* 白背景でカードっぽく */
+  border: 1px solid #ddd;            /* 薄い枠線で囲う */
+  border-radius: 8px;                /* 角を丸めてやわらかい印象に */
+  margin: 1rem;                      /* 外側の余白を空ける */
+  padding: 1rem 2rem;                /* 内側に十分なスペース */
+  width: 200px;                      /* 幅を固定することで整列 */
+}
+
+/* ------------------------------
+   Gallery セクション
+------------------------------ */
+#gallery {
+  padding: 2rem;
+  text-align: center;
+}
+
+.gallery-item {
+  display: inline-block;             /* 横に並ぶように */
+  margin: 0.5rem;                    /* 写真の間隔を調整 */
+}
+
+.gallery-item img {
+  width: 200px;                      /* サムネイルサイズ */
+  height: auto;
+  border-radius: 8px;                /* 角を丸くする */
+  transition: transform 0.3s ease;  /* ホバー時のアニメーション効果 */
+}
+
+/* ホバーすると拡大する */
+.gallery-item img:hover {
+  transform: scale(1.05);           /* 少し大きくして動きを演出 */
+}
+
+/* ------------------------------
+   Footer（アクセス・営業時間・SNSなど）
+------------------------------ */
+footer {
+  background-color: #333;            /* ダークグレー背景で切り替え感を出す */
+  color: white;                      /* 文字は白でコントラストを強調 */
+  display: flex;                     /* 横並び */
+  flex-wrap: wrap;                   /* 画面が狭い時は折り返し */
+  justify-content: space-between;   /* 均等に配置 */
+  padding: 2rem;
+}
+
+footer > div {
+  flex: 1 1 200px;                   /* 最小200pxで均等に広がる */
+  margin: 1rem;
+}
+
+footer h3 {
+  margin-bottom: 0.5rem;            /* タイトルと本文の間にスペースを作る */
+}
+
+/* SNSリンク部分 */
+footer .sns ul {
+  list-style: none;                 /* リストの記号を非表示に */
+  padding: 0;
+}
+
+footer .sns li {
+  margin-bottom: 0.5rem;
+}
+
+footer .sns a {
+  color: #ccc;                      /* 少し薄めの文字色で控えめに */
+  text-decoration: none;
+}
+
+footer .sns a:hover {
+  text-decoration: underline;       /* ホバー時に下線で強調 */
+  color: #fff;                      /* ホバー時は白にして目立たせる */
+}
